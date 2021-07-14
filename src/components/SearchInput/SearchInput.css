@@ -1,0 +1,28 @@
+.SearchInput {
+    position: relative;
+    background: rgba(240, 242, 244, 0.5);
+    box-shadow: inset -1px 0px 0px rgba(198, 209, 221, 0.5);
+    border: 1px solid #DEE5EB;
+}
+
+.SearchInput__image {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 16px;
+    top: 13px;
+}
+
+.SearchInput__input {
+    border: none;
+    background: none;
+    outline: none;
+    height: 42px;
+    width: 100%;
+    padding: 0 16px 0 40px;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
