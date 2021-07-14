@@ -1,0 +1,13 @@
+.Button {
+    width: 171px;
+    height: 42px;
+    font-size: 14px;
+    background: #7B8395;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
