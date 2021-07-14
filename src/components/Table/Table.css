@@ -1,0 +1,45 @@
+.Table {
+    border: 0.5px solid rgba(198, 209, 221, 0.5);
+    display: flex;
+}
+
+.Table__column {
+    flex-grow: 1;
+}
+
+.Table__cell {
+    cursor: pointer;
+    height: 40px;
+    padding: 0 16px;
+    background: #FFFFFF;
+    border: 0.5px solid rgba(198, 209, 221, 0.5);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #1F232E;
+}
+
+.Table__header-cell {
+    height: 48px;
+    background: rgba(240, 242, 244, 0.5);
+    color: #7B8395;
+    font-weight: 500;
+    font-size: 12px;
+    position: relative;
+}
+
+.Table__cell_center {
+    justify-content: center;
+}
+
+.Table__header-filter-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.Table__header-filter-icon_desceding {
+    transform: rotate(180deg) translateY(50%);
+}
