@@ -1,4 +1,5 @@
 import './App.css';
+import Main from './components/Main/Main';
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
             </nav>
 
             <main className="App__main">
-                main
+                <Main/>
             </main>
 
             <footer className="App__footer">
