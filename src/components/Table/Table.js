@@ -7,7 +7,7 @@ const Table = ({ arrMetaData, matrixColumnData, arrRowId }) => {
             {
                 arrMetaData.map((metaData, i) => (
                     <Column 
-                        key={metaData.text}
+                        key={metaData.titleColumn}
                         metaData={metaData}
                         arrColumnData={matrixColumnData[i]}
                         arrRowId={arrRowId}

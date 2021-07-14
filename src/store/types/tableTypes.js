@@ -1,0 +1,3 @@
+export const tableTypeActions = {
+    CHANGE_ALL_DATA_WITHOUT_FILTERS: "CHANGE_ALL_DATA_WITHOUT_FILTERS"
+}
