@@ -2,6 +2,8 @@ import Button from "../Button/Button";
 import SearchInput from "../SearchInput/SearchInput";
 import Message from "../Message/Message";
 import style from "./Main.module.css";
+import Table from "../Table/Table";
+import { arrMetaData, arrRowId, matrixColumnData } from "./mock";
 
 const Main = () => {
     return (
@@ -18,7 +20,11 @@ const Main = () => {
             </div>
 
             <div className={style.Main__container}>
-                main
+                <Table 
+                    arrMetaData={arrMetaData}
+                    matrixColumnData={matrixColumnData}
+                    arrRowId={arrRowId}
+                />
             </div>
 
             <div className={style.Main__container}>
