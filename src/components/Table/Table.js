@@ -31,8 +31,8 @@ const Table = ({
                     <Column 
                         key={metaData.titleColumn}
                         metaData={metaData}
-                        arrColumnData={matrixColumnData[i]}
-                        arrRowId={arrRowId}
+                        arrColumnData={matrixColumnData.length > 0 ?matrixColumnData[i] :[]}
+                        arrRowId={matrixColumnData.length > 0 ?arrRowId: []}
                     />
                 ))
             }

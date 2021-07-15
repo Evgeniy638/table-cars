@@ -1,8 +1,11 @@
 export const selectorsTable = {
     getTableArrMetaData(state) {
-        return state.reducerTable.arrMetaData
+        return state.reducerTable.arrMetaData;
     },
     getTableMatrixColumnData(state) {
-        return state.reducerTable.matrixColumnData
+        return state.reducerTable.matrixColumnData;
+    },
+    getSearchField(state) {
+        return state.reducerTable.searchField;
     }
 }

@@ -1,7 +1,7 @@
 import "./SearchInput.css";
 import svgSearch from './search.svg';
 
-const SearchInput = ({value, onChange, placeholder}) => {
+const SearchInput = ({value, onChange, onKeypress, placeholder}) => {
     const onChangeHandler = (e) => {
         onChange(e.target.value);
     }
@@ -14,6 +14,7 @@ const SearchInput = ({value, onChange, placeholder}) => {
                 value={value}
                 onChange={onChangeHandler}
                 placeholder={placeholder}
+                onKeyPress={onKeypress}
             />
         </div>
     )

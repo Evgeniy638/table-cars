@@ -3,11 +3,17 @@ import { typeActions } from "../types";
 
 const initialState = {
     arrMetaData: [],
-    matrixColumnData: []
+    matrixColumnData: [],
+    searchField: ""
 }
 
 export const reducerTable = (state = initialState, action) => {
     switch (action.type) {
+        case typeActions.table.CHANGE_SEARCH_FIELD:
+            return {
+                ...state,
+                searchField: action.searchField
+            }
         case typeActions.table.TOGGLE_FILTER:
             return {
                 ...state,

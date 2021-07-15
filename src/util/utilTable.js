@@ -56,7 +56,6 @@ export const utilTable = {
 
         [...arrMetaData].reverse().forEach(({ typeFilter }, i) => {
             const indexColumn = arrMetaData.length - i - 1;
-            console.log(typeFilter, i, indexColumn)
 
             if (typeFilter === constants.sortColumn.NONE) {
                 return;
@@ -99,5 +98,18 @@ export const utilTable = {
         }
 
         return cell1 > cell2 ?1 :-1;
+    },
+
+    filterMatrixData(matrixColumnData, searchField) {
+        const lowerSearchField = searchField.toLowerCase();
+
+        let resMatrix = this.transpose(matrixColumnData).filter((row) => {
+            return row.some(cellValue => {
+                const lowerCell = String(cellValue).toLowerCase();
+                return lowerCell && lowerCell.includes(lowerSearchField);
+            });
+        });
+
+        return resMatrix.length > 0 ?this.transpose(resMatrix) :resMatrix;
     }
 }

@@ -13,5 +13,11 @@ export const actionCreatorsTable = {
             type: typeActions.table.TOGGLE_FILTER,
             titleColumn
         }
+    },
+    changeSearchField(searchField) {
+        return {
+            type: typeActions.table.CHANGE_SEARCH_FIELD,
+            searchField
+        }
     }
 }
