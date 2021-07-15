@@ -7,5 +7,11 @@ export const actionCreatorsTable = {
             arrMetaData,
             matrixColumnData
         }
+    },
+    toggleFilter(titleColumn) {
+        return {
+            type: typeActions.table.TOGGLE_FILTER,
+            titleColumn
+        }
     }
 }

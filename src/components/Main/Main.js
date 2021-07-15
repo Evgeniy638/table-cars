@@ -7,17 +7,22 @@ import { useCallback, useEffect } from "react";
 import { apiTable } from "../../api";
 import { utilTable } from "../../util/utilTable";
 import { useSelector } from "react-redux";
-import { actionCreators, selectors, store } from "../../store";
+import { actionCreators, selectors } from "../../store";
 import { useDispatch } from "react-redux";
+import { useSelectFilterAndSortMatrixData } from "../../hooks/useSelectFilterAndSortMatrixData";
 
 const Main = () => {
     const arrMetaData = useSelector(selectors.getTableArrMetaData);
-    const matrixColumnData = useSelector(selectors.getTableMatrixColumnData);
+    const matrixColumnData = useSelectFilterAndSortMatrixData();
 
     const dispatch = useDispatch();
 
     const changeAllDataWithoutFilters = useCallback((arrMetaData, matrixColumnData) => {
         dispatch(actionCreators.table.changeAllDataWithoutFilters(arrMetaData, matrixColumnData));
+    }, [dispatch]);
+
+    const toggleFilter = useCallback((titleColumn) => {
+        dispatch(actionCreators.table.toggleFilter(titleColumn));
     }, [dispatch]);
 
     useEffect(() => {
@@ -27,6 +32,15 @@ const Main = () => {
             changeAllDataWithoutFilters(arrMetaData, matrixColumnData);
         })();
     }, []);
+
+    
+    const onClickHeaderColumn = useCallback((titleColumn) => {
+        toggleFilter(titleColumn);
+    }, [toggleFilter]);
+
+    const onClickCell = useCallback((idRow, titleColumn) => {
+        console.log(idRow, titleColumn);
+    }, []);  
 
     return (
         <div className={style.Main}>
@@ -45,6 +59,8 @@ const Main = () => {
                     arrMetaData={arrMetaData}
                     matrixColumnData={matrixColumnData}
                     arrRowId={matrixColumnData[0]}
+                    onClickCell={onClickCell}
+                    onClickHeaderColumn={onClickHeaderColumn}
                 />
             </div>
 

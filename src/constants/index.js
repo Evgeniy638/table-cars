@@ -1,6 +1,6 @@
-import { positionColumn, filterColumn } from "./constantsTable"
+import { positionColumn, sortColumn } from "./constantsTable"
 
 export const constants = {
     positionColumn,
-    filterColumn
+    sortColumn
 }

@@ -14,11 +14,18 @@ export const utilTable = {
     getArrMetaDataByApiData(apiData) {
         const arrMetaData = apiData.tariffs_list.map((titleColumn, i) => ({
             titleColumn,
-            position: i === 0 ?constants.positionColumn.LEFT :constants.positionColumn.CENTER,
-            typeFilter: constants.filterColumn.NONE
+            position: constants.positionColumn.CENTER,
+            typeFilter: constants.sortColumn.NONE
         }));
 
-        return arrMetaData;
+        return [
+            {
+                titleColumn: "Марка и модель",
+                position: constants.positionColumn.LEFT,
+                typeFilter: constants.sortColumn.NONE
+            },
+            ...arrMetaData
+        ];
     },
 
     getMatrixDataByApiData(apiData) {
@@ -42,5 +49,55 @@ export const utilTable = {
             brandAndModel,
             ...tariffsColumms
         ]
+    },
+
+    sortMatrixData(matrixColumnData, arrMetaData) {
+        let resMatrix = this.transpose(matrixColumnData);
+
+        [...arrMetaData].reverse().forEach(({ typeFilter }, i) => {
+            const indexColumn = arrMetaData.length - i - 1;
+            console.log(typeFilter, i, indexColumn)
+
+            if (typeFilter === constants.sortColumn.NONE) {
+                return;
+            }
+
+            resMatrix.sort((row1, row2) => {
+                const resCompareCell = this.compareCell(row1[indexColumn], row2[indexColumn]);
+                const isDesceding = typeFilter === constants.sortColumn.DESCEDING;
+
+                return isDesceding ?-resCompareCell :resCompareCell;
+            })
+        });
+
+        return this.transpose(resMatrix);
+    },
+
+    transpose(matrix) {
+        const resMatrix = [...matrix[0].map(() => [])];
+
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+                resMatrix[j][i] = matrix[i][j];
+            }
+        }
+
+        return resMatrix;
+    },
+
+    compareCell(cell1, cell2) {
+        if (cell1 === cell2) {
+            return 0;
+        }
+
+        if (!cell1) {
+            return -1;
+        }
+
+        if (!cell2) {
+            return 1;
+        }
+
+        return cell1 > cell2 ?1 :-1;
     }
 }
