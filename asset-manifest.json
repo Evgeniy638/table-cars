@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/table-cars/static/css/main.317ad3a3.chunk.css",
+    "main.js": "/table-cars/static/js/main.d52c1c88.chunk.js",
+    "main.js.map": "/table-cars/static/js/main.d52c1c88.chunk.js.map",
+    "runtime-main.js": "/table-cars/static/js/runtime-main.e44675d9.js",
+    "runtime-main.js.map": "/table-cars/static/js/runtime-main.e44675d9.js.map",
+    "static/js/2.7ab7ecaf.chunk.js": "/table-cars/static/js/2.7ab7ecaf.chunk.js",
+    "static/js/2.7ab7ecaf.chunk.js.map": "/table-cars/static/js/2.7ab7ecaf.chunk.js.map",
+    "static/js/3.80e7fb46.chunk.js": "/table-cars/static/js/3.80e7fb46.chunk.js",
+    "static/js/3.80e7fb46.chunk.js.map": "/table-cars/static/js/3.80e7fb46.chunk.js.map",
+    "index.html": "/table-cars/index.html",
+    "static/css/main.317ad3a3.chunk.css.map": "/table-cars/static/css/main.317ad3a3.chunk.css.map",
+    "static/js/2.7ab7ecaf.chunk.js.LICENSE.txt": "/table-cars/static/js/2.7ab7ecaf.chunk.js.LICENSE.txt",
+    "static/media/filter.eddb4308.svg": "/table-cars/static/media/filter.eddb4308.svg",
+    "static/media/search.e98153e6.svg": "/table-cars/static/media/search.e98153e6.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e44675d9.js",
+    "static/js/2.7ab7ecaf.chunk.js",
+    "static/css/main.317ad3a3.chunk.css",
+    "static/js/main.d52c1c88.chunk.js"
+  ]
+}
