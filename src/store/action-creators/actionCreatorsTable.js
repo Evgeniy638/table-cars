@@ -19,5 +19,11 @@ export const actionCreatorsTable = {
             type: typeActions.table.CHANGE_SEARCH_FIELD,
             searchField
         }
+    },
+    changeActiveRowId(activeRowId) {
+        return {
+            type: typeActions.table.CHANGE_ACTIVE_ROW_ID,
+            activeRowId
+        }
     }
 }

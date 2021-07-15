@@ -3,7 +3,7 @@ import Column from './Column/Column';
 import './Table.css';
 
 const Table = ({ 
-    arrMetaData, matrixColumnData, arrRowId, 
+    arrMetaData, matrixColumnData, arrRowId,
     onClickHeaderColumn = (titleColumn) => {},
     onClickCell = (idRow, titleColumn) => {}  
 }) => {

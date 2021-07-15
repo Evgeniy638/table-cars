@@ -10,10 +10,12 @@ import { useSelector } from "react-redux";
 import { actionCreators, selectors } from "../../store";
 import { useDispatch } from "react-redux";
 import { useSelectFilterAndSortMatrixData } from "../../hooks/useSelectFilterAndSortMatrixData";
+import { useSelectNameActiveRow } from "../../hooks/useSelectNameActiveRow";
 
 const Main = () => {
     const arrMetaData = useSelector(selectors.getTableArrMetaData);
     const searchFieldStore = useSelector(selectors.getSearchField);
+    const acriveRow = useSelectNameActiveRow();
     const matrixColumnData = useSelectFilterAndSortMatrixData();
 
     const [searchField, changeSearchField] = useState(searchFieldStore);
@@ -32,6 +34,10 @@ const Main = () => {
         dispatch(actionCreators.table.changeSearchField(searchField));
     }, [dispatch]);
 
+    const changeActiveRowId = useCallback((activeRowId) => {
+        dispatch(actionCreators.table.changeActiveRowId(activeRowId));
+    }, [dispatch]);
+
     useEffect(() => {
         (async () => {
             const apiData = await apiTable.getCarsData();
@@ -40,21 +46,21 @@ const Main = () => {
         })();
     }, []);
 
-    
+
     const onClickHeaderColumn = useCallback((titleColumn) => {
         toggleFilter(titleColumn);
     }, [toggleFilter]);
 
-    const onClickCell = useCallback((idRow, titleColumn) => {
-        console.log(idRow, titleColumn);
-    }, []);
+    const onClickCell = useCallback((idRow) => {
+        changeActiveRowId(idRow);
+    }, [changeActiveRowId]);
 
     const search = () => {
         changeSearchFieldStore(searchField);
     }
 
-    const onKeypressSearchInput = (e) => {
-        if (e.key === "Enter") {
+    const onKeypressSearchInput = ({ key }) => {
+        if (key === "Enter") {
             search();
         }
     }
@@ -85,17 +91,20 @@ const Main = () => {
                     onClickHeaderColumn={onClickHeaderColumn}
                 />
             </div>
-            
+
             {
                 searchFieldStore && matrixColumnData.length === 0 && arrMetaData.length > 0 &&
                 <div className={style.Main__container}>
-                    <Message text={`${searchFieldStore} не найдено`}/>    
+                    <Message text={`${searchFieldStore} не найдено`} />
                 </div>
             }
 
-            <div className={style.Main__container}>
-                <Message text="Выбран автомобиль Audi A4 2005 года выпуска" />
-            </div>
+            {
+                acriveRow &&
+                <div className={style.Main__container}>
+                    <Message text={`Выбран автомобиль ${acriveRow} года выпуска`} />
+                </div>
+            }
         </div>
     )
 }

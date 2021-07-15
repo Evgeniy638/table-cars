@@ -7,5 +7,8 @@ export const selectorsTable = {
     },
     getSearchField(state) {
         return state.reducerTable.searchField;
+    },
+    getActiveRowId(state) {
+        return state.reducerTable.activeRowId;
     }
 }

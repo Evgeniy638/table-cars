@@ -32,6 +32,10 @@
     position: relative;
 }
 
+.Table__cell_active {
+    background-color: rgba(240, 242, 244, 0.25);
+}
+
 .Table__cell_center {
     justify-content: center;
 }
