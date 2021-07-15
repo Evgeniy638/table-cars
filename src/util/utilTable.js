@@ -51,6 +51,8 @@ export const utilTable = {
         ]
     },
 
+    // сортировка может быть по нескольким колонкам, 
+    // тогда чем левее колонка (меньше индекс в arrMetaData), тем больше приоритет.
     sortMatrixData(matrixColumnData, arrMetaData) {
         let resMatrix = this.transpose(matrixColumnData);
 
