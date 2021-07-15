@@ -1,9 +1,16 @@
 .Main {
     padding: 32px 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .Main__container {
     margin-bottom: 16px;
+}
+
+.Main__table {
+    overflow-y: auto;
 }
 
 .searchField {

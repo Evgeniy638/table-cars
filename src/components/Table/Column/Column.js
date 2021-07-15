@@ -9,18 +9,23 @@ const getClassHeaderCellByPosition = (position) => {
 }
 
 const getClassHeaderImgByFilter = (filter) => {
-    return filter === constants.filterColumn.DESCEDING
+    return filter === constants.sortColumn.DESCEDING
         ? "Table__header-filter-icon_desceding"
         : "";
 }
 
 const Column = ({ metaData, arrColumnData, arrRowId }) => {
     return (
-        <div className="Table__column">
-            <h3 className={`Table__cell Table__header-cell ${getClassHeaderCellByPosition(metaData.position)}`}>
+        <div
+            data-title-column={metaData.titleColumn} 
+            className="Table__column"
+        >
+            <h3
+                className={`Table__cell Table__header-cell ${getClassHeaderCellByPosition(metaData.position)}`}
+            >
                 {metaData.titleColumn}
                 {
-                    metaData.typeFilter !== constants.filterColumn.NONE &&
+                    metaData.typeFilter !== constants.sortColumn.NONE &&
                     <img
                         className={`Table__header-filter-icon ${getClassHeaderImgByFilter(metaData.typeFilter)}`}
                         src={svgFilter}

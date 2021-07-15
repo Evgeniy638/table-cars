@@ -1,15 +1,18 @@
 .Table {
     border: 0.5px solid rgba(198, 209, 221, 0.5);
     display: flex;
+    overflow-y: auto;
 }
 
 .Table__column {
     flex-grow: 1;
+    min-width: 140px;
 }
 
 .Table__cell {
     cursor: pointer;
     height: 40px;
+    min-width: 100px;
     padding: 0 16px;
     background: #FFFFFF;
     border: 0.5px solid rgba(198, 209, 221, 0.5);
@@ -27,6 +30,10 @@
     font-weight: 500;
     font-size: 12px;
     position: relative;
+}
+
+.Table__cell_active {
+    background-color: rgba(240, 242, 244, 0.25);
 }
 
 .Table__cell_center {

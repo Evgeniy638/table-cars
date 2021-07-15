@@ -21,7 +21,9 @@
 
 .App__main {
     grid-column: 2;
-    grid-row: 2;    
+    grid-row: 2;
+    display: flex;
+    overflow: auto;
 }
 
 .App__footer {

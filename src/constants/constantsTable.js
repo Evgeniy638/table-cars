@@ -3,7 +3,7 @@ export const positionColumn = {
     CENTER: "POSITION_COLUMN_CENTER"
 }
 
-export const filterColumn = {
+export const sortColumn = {
     NONE: "NONE",
     ASCEDING: "ASCEDING",
     DESCEDING: "DESCEDING"
